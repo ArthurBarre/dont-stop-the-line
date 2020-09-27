@@ -40,10 +40,7 @@ button.addEventListener("click", function () {
         ],
       }),
     };
-    fetch("http://54.216.109.5:3001/paths/addPath", options, function (
-      err,
-      res
-    ) {
+    fetch("localhost:3001/paths/addPath", options, function (err, res) {
       if (err) console.log(err);
       console.log(res);
     });
