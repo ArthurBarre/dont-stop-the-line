@@ -10,7 +10,7 @@ var PathSchema = mongoose.Schema({
 Path = exports.Path = mongoose.model("Path", PathSchema);
 
 exports.initializeMongo = function () {
-  mongoose.connect(DATABASE_CONNECTION, { useNewUrlParser: true });
+  mongoose.connect("mongodb://mongo:27017", { useNewUrlParser: true });
   console.log("connecting to " + DATABASE_CONNECTION);
   var db = mongoose.connection;
 
