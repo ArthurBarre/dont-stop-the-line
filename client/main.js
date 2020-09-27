@@ -1,0 +1,52 @@
+const API_URL = "54.216.109.5:3001/paths/addPath";
+
+const track = () => {
+  const lat = geolocationCoordinatesInstance.latitude;
+  const long = geolocationCoordinatesInstance.longitude;
+
+  console.log(lat);
+
+  //   setTimeout(() => {}, 5000);
+};
+const button = document.getElementById("button");
+button.addEventListener("click", function () {
+  // setTimeout(() => {
+  navigator.geolocation.getCurrentPosition(function (position) {
+    let lat = position.coords.latitude;
+    let long = position.coords.longitude;
+    let userId = 122;
+    let paths = [
+      {
+        lat: 12,
+        long: 12,
+      },
+    ];
+
+    console.log("lat", lat);
+    console.log("long", long);
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        userId,
+        paths: [
+          {
+            lat,
+            long,
+          },
+          ...paths,
+        ],
+      }),
+    };
+    fetch("http://54.216.109.5:3001/paths/addPath", options, function (
+      err,
+      res
+    ) {
+      if (err) console.log(err);
+      console.log(res);
+    });
+  });
+  // }, 5000);
+});

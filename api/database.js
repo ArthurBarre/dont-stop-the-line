@@ -21,12 +21,28 @@ exports.initializeMongo = function () {
 };
 
 exports.addNewPath = (userId, obj) => {
-  var newPath = new Path({
-    userId,
-    paths: obj,
-  });
-  newPath.save(function (err, path) {
-    if (err) return console.error(err);
-    console.log("new path registered");
-  });
+  // var myquery = { userId: 122 };
+  // var newvalues = {
+  //   $set: {
+  //     paths: [
+  //       {
+  //         hello: "world2",
+  //       },
+  //     ],
+  //   },
+  // };
+  // dbo.collection("customers").updateOne(myquery, newvalues, function(err, res) {
+
+  Path.updateOne(
+    { userId: userId },
+    {
+      $set: {
+        paths: obj,
+      },
+    },
+    function (err, res) {
+      if (err) throw err;
+      console.log(res);
+    }
+  );
 };
