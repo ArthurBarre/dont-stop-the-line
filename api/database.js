@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const DATABASE_CONNECTION = "mongodb://mongo:27017/expressmongo";
+const DATABASE_CONNECTION = "mongodb:mongo:27017/expressmongo";
 
 var PathSchema = mongoose.Schema({
   userId: Number,
