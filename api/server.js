@@ -10,12 +10,7 @@ app.use(bodyParser.json());
 // app.use(cors());
 
 db.initializeMongo();
-app.applyMiddleware({
-  cors: {
-    origin: "http://127.0.0.1:5500/",
-    optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-  },
-});
+
 app.get("/", function (req, res) {
   db.Path.find(function (err, paths) {
     if (err) return console.error(err);
