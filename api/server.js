@@ -25,6 +25,3 @@ app.listen(3001, function () {
   console.log("turn on 3001");
 });
 
-app.listen(3001, function () {
-  console.log("turn on 3001");
-});
