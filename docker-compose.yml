@@ -1,0 +1,23 @@
+version: "3"
+services:
+  web:
+    image: docker-node-express-mongoapp
+    build: ./api
+    command: node server.js
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./api:/usr/src/app
+      - /usr/src/app/node_modules
+    depends_on:
+      - "mongo"
+
+  mongo:
+    image: "mongo"
+    ports:
+      - "27017:27017"
+
+  adminmongo:
+    image: "mrvautin/adminmongo"
+    ports: 
+      - "1234:1324"
