@@ -40,7 +40,7 @@ button.addEventListener("click", function () {
         ],
       }),
     };
-    fetch("localhost:3001/paths/addPath", options, function (err, res) {
+    fetch("http://localhost:3001/paths/addPath", options, function (err, res) {
       if (err) console.log(err);
       console.log(res);
     });
