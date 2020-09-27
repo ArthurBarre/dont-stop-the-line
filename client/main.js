@@ -29,6 +29,7 @@ button.addEventListener("click", function () {
       headers: {
         "Content-Type": "application/json",
       },
+      mode: "cors",
       body: JSON.stringify({
         userId,
         paths: [
