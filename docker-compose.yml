@@ -1,5 +1,10 @@
 version: "3"
 services:
+  mongo:
+    image: "mongo"
+    ports:
+      - "27017:27017"
+
   web:
     image: docker-node-express-mongoapp
     build: ./api
@@ -11,11 +16,6 @@ services:
       - /usr/src/app/node_modules
     depends_on:
       - "mongo"
-
-  mongo:
-    image: "mongo"
-    ports:
-      - "27017:27017"
 
   adminmongo:
     image: "mrvautin/adminmongo"
