@@ -22,8 +22,8 @@ button.addEventListener("click", function () {
   //     },
   //   ];
 
-    console.log("lat", lat);
-    console.log("long", long);
+    // console.log("lat", lat);
+    // console.log("long", long);
     const options = {
       method: "POST",
       headers: {
