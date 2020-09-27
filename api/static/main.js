@@ -11,16 +11,16 @@ const track = () => {
 const button = document.getElementById("button");
 button.addEventListener("click", function () {
   // setTimeout(() => {
-  navigator.geolocation.getCurrentPosition(function (position) {
-    let lat = position.coords.latitude;
-    let long = position.coords.longitude;
-    let userId = 122;
-    let paths = [
-      {
-        lat: 12,
-        long: 12,
-      },
-    ];
+  // navigator.geolocation.getCurrentPosition(function (position) {
+  //   let lat = position.coords.latitude;
+  //   let long = position.coords.longitude;
+  //   let userId = 122;
+  //   let paths = [
+  //     {
+  //       lat: 12,
+  //       long: 12,
+  //     },
+  //   ];
 
     console.log("lat", lat);
     console.log("long", long);
@@ -44,6 +44,6 @@ button.addEventListener("click", function () {
       if (err) console.log(err);
       console.log(res);
     });
-  });
+  // });
   // }, 5000);
 });
