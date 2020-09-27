@@ -10,7 +10,8 @@ app.use(bodyParser.json());
 // app.use(cors());
 
 db.initializeMongo();
-app.use(express.static("../client"));
+
+app.use(express.static("static"));
 
 app.get("/", function (req, res) {
   db.Path.find(function (err, paths) {
@@ -24,4 +25,3 @@ app.use("/paths", apiPaths);
 app.listen(3001, function () {
   console.log("turn on 3001");
 });
-
