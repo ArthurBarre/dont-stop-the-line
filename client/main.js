@@ -33,10 +33,9 @@ button.addEventListener("click", function () {
         userId,
         paths: [
           {
-            lat,
-            long,
+            userId: 122,
+            path: [{ hello: "worldwedsd" }],
           },
-          ...paths,
         ],
       }),
     };

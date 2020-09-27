@@ -2,9 +2,12 @@ const express = require("express");
 var bodyParser = require("body-parser");
 const db = require("./database");
 const app = express();
+var cors = require('cors')
+
 const apiPaths = require("./routes");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(cors())
 
 db.initializeMongo();
 
