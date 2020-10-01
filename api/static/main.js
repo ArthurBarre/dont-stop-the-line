@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3001/paths/addPath";
+const API_URL = "http://34.241.182.22:3001/paths/addPath";
 
 const track = () => {
   const lat = geolocationCoordinatesInstance.latitude;
