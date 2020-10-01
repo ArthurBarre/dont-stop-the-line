@@ -1,4 +1,4 @@
-const API_URL = "54.216.109.5:3001/paths/addPath";
+const API_URL = "localhost:3001/paths/addPath";
 
 const track = () => {
   const lat = geolocationCoordinatesInstance.latitude;
@@ -14,7 +14,7 @@ button.addEventListener("click", function () {
   // navigator.geolocation.getCurrentPosition(function (position) {
   //   let lat = position.coords.latitude;
   //   let long = position.coords.longitude;
-    let userId = 122;
+  let userId = 122;
   //   let paths = [
   //     {
   //       lat: 12,
@@ -22,28 +22,28 @@ button.addEventListener("click", function () {
   //     },
   //   ];
 
-    // console.log("lat", lat);
-    // console.log("long", long);
-    const options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      mode: "cors",
-      body: JSON.stringify({
-        userId,
-        paths: [
-          {
-            userId: 122,
-            path: [{ hello: "worldwedsd" }],
-          },
-        ],
-      }),
-    };
-    fetch("http://54.216.109.5:3001/paths/addPath", options, function (err, res) {
-      if (err) console.log(err);
-      console.log(res);
-    });
+  // console.log("lat", lat);
+  // console.log("long", long);
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    mode: "cors",
+    body: JSON.stringify({
+      userId,
+      paths: [
+        {
+          userId: 122,
+          path: [{ hello: "worldwedsd" }],
+        },
+      ],
+    }),
+  };
+  fetch(API_URL, options, function (err, res) {
+    if (err) console.log(err);
+    console.log(res);
+  });
   // });
   // }, 5000);
 });
