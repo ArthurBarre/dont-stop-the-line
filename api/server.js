@@ -10,14 +10,14 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
+  res.header("Access-Control-Allow-Origin", "*");
   next();
 });
 db.initializeMongo();
 
 app.use(express.static("static"));
 
-app.get("/", function (req, res) {
+app.get("/allPath", function (req, res) {
   db.Path.find(function (err, paths) {
     if (err) return console.error(err);
     res.json(paths);
