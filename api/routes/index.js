@@ -23,4 +23,10 @@ router.get("/getPath", function (req, res) {
     res.json(paths);
   });
 });
+router.get("/getPathId", function (req, res) {
+  const userId = req.query.userId;
+  const result = db.Path.find({}, { userId });
+  console.log(result);
+  return res.json(result);
+});
 module.exports = router;

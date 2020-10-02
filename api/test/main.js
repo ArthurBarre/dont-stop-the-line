@@ -1,22 +1,36 @@
 const fetch = require("node-fetch");
 
-const options = {
-  method: "POST",
+const optionsGet = {
+  method: "GET",
   headers: {
     "Content-Type": "application/json",
   },
   mode: "cors",
-  body: JSON.stringify({
-    userId: 123,
-    path: [
-      { lat: 1.22, long: 1.988 },
-      { lat: 1.22, long: 1.988 },
-    ],
-  }),
 };
 
-function test() {
-  fetch("http://34.251.233.20:3001/paths/addPath", options, function (
+function test(x, y, i) {
+  fetch(
+    "http://34.251.233.20:3001/paths/addPath",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      mode: "cors",
+      body: JSON.stringify({
+        userId: i,
+        path: [{ lat: x, long: y }],
+      }),
+    },
+    function (err, res) {
+      if (err) console.log(err);
+      console.log(res);
+    }
+  );
+}
+
+function get() {
+  fetch("http://34.251.233.20:3001/paths/getPath", optionsGet, function (
     err,
     res
   ) {
@@ -24,5 +38,6 @@ function test() {
     console.log(res);
   });
 }
-
-test();
+for (let i = 0; i < 12; i++) {
+  test(i, i + 3, i + 10);
+}

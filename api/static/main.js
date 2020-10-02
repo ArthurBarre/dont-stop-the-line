@@ -1,26 +1,34 @@
-const API_URL = "http://34.251.233.20:3001/paths/addPath";
+// const { default: fetch } = require("node-fetch");
+
+const API_URL_POST = "http://34.251.233.20:3001/paths/addPath";
+const API_URL_GET = "http://34.251.233.20:3001/paths/getPath";
 
 const track = () => {
-  const lat = geolocationCoordinatesInstance.latitude;
-  const long = geolocationCoordinatesInstance.longitude;
-
-  console.log(lat);
+  if ("geolocation" in navigator) {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      registerLocation(position.coords.latitude, position.coords.longitude);
+    });
+  } else {
+    console.log("geolocation service is not ok");
+  }
 };
-
 const button = document.getElementById("button");
 
-let user = {
-  userId: 12345,
-  path: [{ lat: 1.22, long: 1.988 }],
-};
-button.addEventListener("click", async () => {
-  let response = await fetch(API_URL, {
+const registerLocation = async (lat, long) => {
+  const userId = 1;
+  let user = {
+    userId,
+    path: { lat, long },
+  };
+  await fetch(API_URL_POST, {
     method: "POST",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
     },
     body: JSON.stringify(user),
   });
+};
 
-  console.log(response);
+button.addEventListener("click", async () => {
+  track();
 });

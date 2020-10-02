@@ -21,23 +21,13 @@ exports.initializeMongo = function () {
 };
 
 exports.addNewPath = (userId, obj) => {
-  // var myquery = { userId: 122 };
-  // var newvalues = {
-  //   $set: {
-  //     paths: [
-  //       {
-  //         hello: "world2",
-  //       },
-  //     ],
-  //   },
-  // };
-  // dbo.collection("customers").updateOne(myquery, newvalues, function(err, res) {
+
   Path.count({ userId: userId }, function (err, count) {
     if (count > 0) {
-      Path.updateOne(
+      Path.update(
         { userId: userId },
         {
-          $set: {
+          $push: {
             paths: obj,
           },
         },
