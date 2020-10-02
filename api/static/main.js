@@ -6,6 +6,7 @@ const track = () => {
 
   console.log(lat);
 };
+
 const button = document.getElementById("button");
 
 let user = {
