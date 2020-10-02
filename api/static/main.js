@@ -1,49 +1,29 @@
-const API_URL = "http://34.241.182.22:3001/paths/addPath";
+const API_URL = "http://34.251.233.20:3001/paths/addPath";
 
 const track = () => {
   const lat = geolocationCoordinatesInstance.latitude;
   const long = geolocationCoordinatesInstance.longitude;
 
   console.log(lat);
-
-  //   setTimeout(() => {}, 5000);
 };
 const button = document.getElementById("button");
-button.addEventListener("click", function () {
-  // setTimeout(() => {
-  // navigator.geolocation.getCurrentPosition(function (position) {
-  //   let lat = position.coords.latitude;
-  //   let long = position.coords.longitude;
-  let userId = 122;
-  //   let paths = [
-  //     {
-  //       lat: 12,
-  //       long: 12,
-  //     },
-  //   ];
 
-  // console.log("lat", lat);
-  // console.log("long", long);
-  const options = {
+let user = {
+  userId: 122,
+  path: [
+    { lat: 1.22, long: 1.988 },
+    { lat: 1.22, long: 1.988 },
+    { lat: 1.22, long: 1.988 },
+  ],
+};
+button.addEventListener("click", async () => {
+  let response = await fetch(API_URL, {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": "application/json;charset=utf-8",
     },
-    mode: "cors",
-    body: JSON.stringify({
-      userId,
-      paths: [
-        {
-          userId: 122,
-          path: [{ hello: "worldwedsd" }],
-        },
-      ],
-    }),
-  };
-  fetch(API_URL, options, function (err, res) {
-    if (err) console.log(err);
-    console.log(res);
+    body: JSON.stringify(user),
   });
-  // });
-  // }, 5000);
+
+  console.log(response);
 });
