@@ -4,15 +4,15 @@ const router = express.Router();
 
 router.post("/addPath", async (req, res) => {
   var userId = req.body.userId;
-  var path = req.body.path;
+  var paths = req.body.paths;
 
   try {
-    let results = await db.addNewPath(userId, path);
+    let results = await db.addNewPath(userId, paths);
     res.json(results);
   } catch (e) {
     res.send({
       code: 404,
-      message: "error ocurred",
+      message: "error ocurred routes",
     });
   }
 });

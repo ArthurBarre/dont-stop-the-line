@@ -21,7 +21,6 @@ exports.initializeMongo = function () {
 };
 
 exports.addNewPath = (userId, obj) => {
-
   Path.count({ userId: userId }, function (err, count) {
     if (count > 0) {
       Path.update(

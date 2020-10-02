@@ -18,7 +18,7 @@ const registerLocation = async (lat, long) => {
   const userId = 1;
   let user = {
     userId,
-    path: { lat, long },
+    paths: { lat: lat, long: long },
   };
   await fetch(API_URL_POST, {
     method: "POST",
