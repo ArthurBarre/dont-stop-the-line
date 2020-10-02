@@ -4,6 +4,9 @@ services:
     image: "mongo"
     ports:
       - "27017:27017"
+    volumes:
+      - ./api:/usr/src/app
+      - /usr/src/app/:/data/db
 
   web:
     image: docker-node-express-mongoapp
@@ -19,5 +22,5 @@ services:
 
   adminmongo:
     image: "mrvautin/adminmongo"
-    ports: 
+    ports:
       - "1234:1324"

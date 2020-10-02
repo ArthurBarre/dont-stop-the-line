@@ -32,17 +32,29 @@ exports.addNewPath = (userId, obj) => {
   //   },
   // };
   // dbo.collection("customers").updateOne(myquery, newvalues, function(err, res) {
-
-  Path.updateOne(
-    { userId: userId },
-    {
-      $set: {
+  Path.count({ userId: userId }, function (err, count) {
+    if (count > 0) {
+      Path.updateOne(
+        { userId: userId },
+        {
+          $set: {
+            paths: obj,
+          },
+        },
+        function (err, res) {
+          if (err) throw err;
+          console.log(res);
+        }
+      );
+    } else {
+      var newPath = new Path({
+        userId,
         paths: obj,
-      },
-    },
-    function (err, res) {
-      if (err) throw err;
-      console.log(res);
+      });
+      newPath.save(function (err, path) {
+        if (err) return console.error(err);
+        console.log("new path registered");
+      });
     }
-  );
+  });
 };
