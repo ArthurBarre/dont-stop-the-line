@@ -11,11 +11,7 @@ const button = document.getElementById("button");
 
 let user = {
   userId: 12345,
-  path: [
-    { lat: 1.22, long: 1.988 },
-    { lat: 1.22, long: 1.988 },
-    { lat: 1.22, long: 1.988 },
-  ],
+  path: [{ lat: 1.22, long: 1.988 }],
 };
 button.addEventListener("click", async () => {
   let response = await fetch(API_URL, {
